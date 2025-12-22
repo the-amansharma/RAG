@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::01/2023",
+  "tax_type": "Central Tax",
+  "notification_no": "01/2023",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2023-01-04",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2023\\01-2023-ct-eng.pdf"
+    },
+    {
+      "document_nature": "amendment",
+      "issued_on": "2023-02-28",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central Tax (Rate)\\2023\\01_2023-ctr-eng.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2023-01-04 | Source: 01-2023-ct-eng.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION (I)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(DEPARTMENT OF REVENUE)\nCENTRAL BOARD OF INDIRECT TAXES AND CUSTOMS\nNOTIFICATION\nNo 01/2023-Central Tax\nNew Delhi, dated the 4th January, 2023\nG.S.R (E).– In exercise of the powers conferred under section 3 read with section 5 of the Central Goods and\nServices Tax Act, 2017 (12 of 2017) and section 3 of the Integrated Goods and Services Tax Act, 2017( 13 of 2017),\nthe Central Government hereby makes the following amendments in the notification of the Government of India,\nMinistry of Finance (Department of Revenue) No. 14/2017-Central Tax, dated the 1st July, 2017, published in the\nGazette of India, Extraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R. 818(E), dated the 1st July,\n2017, namely: -\nIn the said notification, in the Table, after Sl. No. 8 and the entries relating thereto, the following Sl. No. and entries\nshall be inserted namely:-\nSl. No. Officers Officers whose powers are to be\nexercised\n(1) (2) (3)\n“8A. Additional Assistant Director, Goods and Services Tax Superintendent”\nIntelligence or Additional Assistant Director, Goods and\nServices Tax or Additional Assistant Director, Audit\n[F. No.CBIC-20006/17/2022-GST]\n(Raghvendra Pal Singh)\nDirector\nNote: The principal notification No. 14/2017- Central Tax, dated the 1st July, 2017 was published in the Gazette of\nIndia, Extraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R. 818(E), dated the 1st July, 2017.\n\n[AMENDMENT | Issued: 2023-02-28 | Source: 01_2023-ctr-eng.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-SECTION\n(i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(DEPARTMENT OF REVENUE)\nNOTIFICATION\nNo. 01/2023 -Central Tax (Rate)\nNew Delhi, the 28th February, 2023.\nG.S.R. -----(E). -In exercise of the powers conferred by sub-sections (3) and (4) of section 9, sub-section (1)\nof section 11, sub-section (5) of section 15 and section 148 of the Central Goods and Services Tax Act, 2017 (12 of\n2017), the Central Government, on being satisfied that it is necessary in the public interest so to do, on the\nrecommendations of the Council, hereby makes the following amendment further to amend the notification of the\nGovernment of India, Ministry of Finance (Department of Revenue), No.12/2017-Central Tax (Rate), dated the 28th\nJune, 2017, published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R.\n691(E), dated the 28th June, 2017, namely:—\nIn the said notification, in paragraph 3, in the Explanation, after clause (iv), the following clause shall be\ninserted, namely: -\n“(iva) For removal of doubts, it is clarified that any authority, board or body set up by the Central\nGovernment or State Government including National Testing Agency for conduct of entrance\nexamination for admission to educational institutions shall be treated as educational institution for\nthe limited purpose of providing services by way of conduct of entrance examination for admission\nto educational institutions.”.\n2. This notification shall come into force with effect from the 01st March, 2023.\n[F.No.- CBIC-190354/21/2023-TO(TRU-II)-CBEC]\n(Rajeev Ranjan)\nUnder Secretary\nNote: The principal notification was published in the Gazette of India, Extraordinary, vide notification No. 12/2017 -\nCentral Tax (Rate), dated the 28th June, 2017, vide number G.S.R. 691 (E), dated the 28th June, 2017 and last amended\nvide notification No. 15/2022 - Central Tax (Rate), dated the 30th December, 2022 vide number G.S.R. 926(E), dated\nthe 30th December, 2022.",
+  "latest_effective_date": "2023-02-28",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2023\\01-2023-ct-eng.pdf",
+    "data\\notifications\\Central Tax (Rate)\\2023\\01_2023-ctr-eng.pdf"
+  ]
+}

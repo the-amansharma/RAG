@@ -1,0 +1,18 @@
+{
+  "group_id": "Central Tax::31/2018",
+  "tax_type": "Central Tax",
+  "notification_no": "31/2018",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2018-08-06",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2018\\download (29).pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2018-08-06 | Source: download (29).pdf]\n[PAGE 1]\n[To be published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section\n(i)]\nGovernment of India\nMinistry of Finance\nDepartment of Revenue\nCentral Board of Indirect Taxes and Customs\nNotification No. 31/2018 – Central Tax\nNew Delhi, the 6th August, 2018\nG.S.R……(E).- In exercise of the powers conferred by section 148 of the Central Goods and\nServices Tax Act, 2017 (12 of 2017), the Central Government, on the recommendations of\nthe Council, hereby specifies the persons who did not file the complete FORM GST REG-\n26 of the Central Goods and Services Tax Rules, 2017 but received only a Provisional\nIdentification Number (PID) (hereinafter referred to as “such taxpayers”) till the 31st\nDecember, 2017 may now apply for Goods and Services Tax Identification Number\n(GSTIN).\n2. The special procedure to be followed for registration of such taxpayers is as detailed\nbelow:-\n(i) The details as per the Table below should be furnished by such taxpayers to the\njurisdictional nodal officer of the Central Government or State Government on or before the\n31st August, 2018.\nTable\n1 Provisional ID\n2 Registration Number under the earlier law\n(Taxpayer Identification Number (TIN)/Central\nExcise/Service Tax Registration number)\n3 Date on which token was shared for the first time\n4 Whether activated part A of the aforesaid FORM Yes/No\nGST REG-26\n5 Contact details of the taxpayer\n5a Email id\n5b Mobile\n6 Reason for not migrating in the system\n7 Jurisdiction of Officer who is sending the request\n(ii) On receipt of an e-mail from the Goods and Services Tax Network (GSTN), such\ntaxpayers should apply for registration by logging onto https://www.gst.gov.in/) in the\n“Services” tab and filling up the application in FORM GST REG-01 of the Central Goods\nand Services Tax Rules, 2017.\n\n[PAGE 2]\n(iii) After due approval of the application by the proper officer, such taxpayers will\nreceive an email from GSTN mentioning the Application Reference Number (ARN), a new\nGSTIN and a new access token.\n(iv) Upon receipt, such taxpayers are required to furnish the following details to GSTN by e-\nmail, on or before the 30th September, 2018, to migration@gstn.org.in:–\n(a) New GSTIN;\n(b) Access Token for new GSTIN;\n(c) ARN of new application;\n(d) Old GSTIN (PID).\n(v) Upon receipt of the above information from such taxpayers, GSTN shall complete the\nprocess of mapping the new GSTIN to the old GSTIN and inform such taxpayers.\n(vi) Such taxpayers are required to log onto the common portal www.gstn.gov.in using the\nold GSTIN as “First Time Login” for generation of the Registration Certificate.\n3. Such taxpayers shall be deemed to have been registered with effect from the 1st July,\n2017.\n[F. No.349/58/2017-GST(Pt.)]\n(Dr. Sreeparvathy S.L.)\nUnder Secretary to the Government of India",
+  "latest_effective_date": "2018-08-06",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2018\\download (29).pdf"
+  ]
+}

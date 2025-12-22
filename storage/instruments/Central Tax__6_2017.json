@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::6/2017",
+  "tax_type": "Central Tax",
+  "notification_no": "6/2017",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2017-06-19",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2017\\download (5).pdf"
+    },
+    {
+      "document_nature": "original",
+      "issued_on": "2017-06-28",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central Tax (Rate)\\2017\\download (3).pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2017-06-19 | Source: download (5).pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA,\nEXTRAORDINARY, PART II, SECTION 3, SUB-SECTION (i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\nDEPARTMENT OF REVENUE\nCENTRAL BOARD OF EXCISE AND CUSTOMS\nNotification No. 6/2017 – Central Tax\nNew Delhi, the 19th June, 2017\n29 Jyaistha, 1939 Saka\nG.S.R. (E).- In exercise of the powers conferred by sub-rule (1) of rule 26 of\nthe Central Goods and Services Tax Rules, 2017 (hereinafter referred to as the\nsaid Rules), the Central Board of Excise and Customs hereby notifies the\nfollowing modes of verification, for the purpose of the said rule, namely:-\n(i) Aadhaar based Electronic Verification Code (EVC);\n(ii) Bank account based One Time Password (OTP):\nProvided that where the mode of authentication of any document is\nthrough any of the aforesaid modes, such verification shall be done within two\ndays of furnishing the documents.\n2. This notification shall come into force on the 22nd day of June, 2017.\n[F. No. 349/72/2017-GST]\n(Dr. Sreeparvathy.S.L.)\nUnder Secretary to the Government of India\n\n[ORIGINAL | Issued: 2017-06-28 | Source: download (3).pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN PART II, SECTION 3, SUB-SECTION (i) OF THE GAZETTE\nOF INDIA, EXTRAORDINARY]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(Department of Revenue)\nNotification No.6/2017-Central Tax (Rate)\nNew Delhi, the 28th June, 2017\nG.S.R. (E).- In exercise of the powers conferred by section 55 of the Central Goods and\nServices Tax Act, 2017 (12 of 2017), the Central Government, on the recommendations of\nthe Council, hereby specifies the Canteen Stores Department (hereinafter referred to as the\nCSD), under the Ministry of Defence, as a person who shall be entitled to claim a refund of\nfifty per cent. of the applicable central tax paid by it on all inward supplies of goods received\nby it for the purposes of subsequent supply of such goods to the Unit Run Canteens of the\nCSD or to the authorized customers of the CSD.\n2. This notification shall come into force with effect from the 1st day of July, 2017.\n[F.No.354/117/2007-TRU]\n(Mohit Tewari)\nUnder Secretary to the Government of India\n1",
+  "latest_effective_date": "2017-06-28",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2017\\download (5).pdf",
+    "data\\notifications\\Central Tax (Rate)\\2017\\download (3).pdf"
+  ]
+}

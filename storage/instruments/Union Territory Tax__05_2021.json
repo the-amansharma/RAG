@@ -1,0 +1,25 @@
+{
+  "group_id": "Union Territory Tax::05/2021",
+  "tax_type": "Union Territory Tax",
+  "notification_no": "05/2021",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2021-06-14",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Union Territory Tax (Rate)\\2021\\notfctn-05-2021-utgst-rate.pdf"
+    },
+    {
+      "document_nature": "corrigendum",
+      "issued_on": "2021-06-15",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Union Territory Tax (Rate)\\2021\\corri-05-2021-utgst-rate.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2021-06-14 | Source: notfctn-05-2021-utgst-rate.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION (i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(Department of Revenue)\nNotification No. 05/2021-Union Territory Tax (Rate)\nNew Delhi, the 14th June, 2021\nG.S.R….(E).- In exercise of the powers conferred by sub-section (1) of section 8 of the Union Territory\nGoods and Services Tax Act, 2017 (14 of 2017) (hereafter in this notification referred to as “the said Act”), the\nCentral Government, on being satisfied that it is necessary in the public interest so to do, on the\nrecommendations of the Council, hereby exempts the goods specified in column (3) of the Table below, falling\nunder the tariff item, sub-heading, heading or Chapter as specified in the First Schedule to the Customs Tariff\nAct, 1975 (51 of 1975), as the case may be, as specified in the corresponding entry in column (2), of the Table\nbelow, from the so much of the union territory tax leviable thereon under section 7 of the said Act, as in excess\nof the amount as specified in corresponding entry in column (4) of the aforesaid Table, namely:-\nTable\nChapter,\nSl.\nHeading,\nNo. Description of Goods Rate\nSub-heading or\nTariff item\n(1) (2) (3) (4)\n1 2804 Medical Grade Oxygen 2.5%\n2 30 Tocilizumab Nil\n3 30 Amphotericin B Nil\n4 30 Remdesvir 2.5%\n5 30 Heparin (anti-coagulant) 2.5%\n6 3002 or 3822 Covid-19 testing kits 2.5%\nInflammatory Diagnostic (marker) kits, namely- IL6, D-\nDimer, CRP (C-Reactive Protein), LDH (Lactate De-\n7 3002 or 3822 2.5%\nHydrogenase), Ferritin, Pro Calcitonin (PCT) and blood\ngas reagents.\n8 3804 94 Hand Sanitizer 2.5%\n9 6506 99 00 Helmets for use with non-invasive ventilation 2.5%\n10 8417 or 8514 Gas/Electric/other furnaces for crematorium 2.5%\n11 9018 19 or 9804 Pulse Oximeter 2.5%\n12 9018 High flow nasal canula device 2.5%\n13 9019 20 or 9804 Oxygen Concentrator/ generator 2.5%\n14 9018 or 9019 Ventilators 2.5%\n15 9019 BiPAP Machine 2.5%\n\n[PAGE 2]\n(i) Non-invasive ventilation nasal or oronasal masks for\nICU ventilators\n16 9019 2.5%\n(ii) Canula for use with ventilators\n17 9025 Temperature check equipment 2.5%\n18 8702 or 8703 Ambulance 6%\n2. This notification shall remain in force upto and inclusive of the 30th September, 2021.\n[F.No. CBIC-190354/63/2021-TO(TRU-I)-CBEC]\n(Rajeev Ranjan)\nUnder Secretary to the Government of India\n\n[CORRIGENDUM | Issued: 2021-06-15 | Source: corri-05-2021-utgst-rate.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION (i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(Department of Revenue)\nCORRIGENDUM\nNew Delhi, the 15th June, 2021\nG.S.R. …(E). - In the notification of the Government of India, Ministry of Finance (Department of\nRevenue) No. 05/2021-Union Territory Tax (Rate), dated the 14th June, 2021, published in the Gazette of India,\nExtraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R. 407(E), dated the 14th June, 2021, on page\n12, in the Table, against Sl. No. 8, in column (2), for “3804 94”, read “3808 94”.\n[F.No. CBIC-190354/63/2021-TO(TRU-I)-CBEC]\n(Rajeev Ranjan)\nUnder Secretary to the Government of India",
+  "latest_effective_date": "2021-06-15",
+  "file_paths": [
+    "data\\notifications\\Union Territory Tax (Rate)\\2021\\notfctn-05-2021-utgst-rate.pdf",
+    "data\\notifications\\Union Territory Tax (Rate)\\2021\\corri-05-2021-utgst-rate.pdf"
+  ]
+}

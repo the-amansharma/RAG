@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::04/2025",
+  "tax_type": "Central Tax",
+  "notification_no": "04/2025",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2025-01-10",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2025\\04-2025-ct-eng.pdf"
+    },
+    {
+      "document_nature": "original",
+      "issued_on": null,
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central Tax (Rate)\\2025\\ctr04-2025.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2025-01-10 | Source: 04-2025-ct-eng.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION (i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(DEPARTMENT OF REVENUE)\nCENTRAL BOARD OF INDIRECT TAXES AND CUSTOMS\nNOTIFICATION\nNo. 04/2025 – CENTRAL TAX\nNew Delhi, the 10th January, 2025\nG.S.R.....(E).- In exercise of the powers conferred by sub-section (6) of section 39 read with section 168 of\nthe Central Goods and Services Tax Act, 2017 (12 of 2017), the Commissioner, on the recommendations\nof the Council, hereby extends the time limit for furnishing the return by an Input Service Distributor in FORM\nGSTR-6 under sub-section (4) of section 39 of the said Act read with rule 65 of the Central Goods and Services Tax\nRules, 2017, for the month of December, 2024 till the 15th day of January, 2025.\n[F. No. CBIC-20021/2/2025-GST]\n(Raushan Kumar)\nUnder Secretary to the Government of India\n\n[ORIGINAL | Issued: UNKNOWN | Source: ctr04-2025.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION(i)]\nGOVERNMENTOFINDIA\nMINISTRYOFFINANCE\n(Department ofRevenue)\nNotification No.04/2025-Central Tax(Rate)\nNewDelhi,the16January, 2025\nG.S.R. ......(E). -In exercise of the powers conferred by sub-section (1) of section 11 of the Central Goods and\nServices Act, 2017 (12 of 2017), the Central Government, on being satisfied that it is necessary in the public\ninterest so to do, on the recommendations of the Council, hereby makes the following amendments in the\nnotification oftheGovernment ofIndiaintheMinistry ofFinance(Department ofRevenue)No.8/2018-Central\nTax(Rate), dated the25thJanuary, 2018, published intheGazette ofIndia, Extraordinary, PartII, section 3,sub-\nsection (i)videnumberG.S.R.82(E),datedthe25thJanuary, 2018,namely:-\nIn the said notification, in the TABLE, against S. No. 4, in column (4), for the entry “6%”, the entry\n“9%”shallbesubstituted.\n2. Thisnotification shallcomeintoforce withimmediate effect.\n[F.No.190354/2/2025-TRU]\n(Amreeta Titus)\nDeputySecretary\nNote: The principal notification No. 8/2018-Central Tax(Rate), dated the25th January, 2018, was published\nin the Gazette of India, Extraordinary, Part II, section 3, sub-section (i), vide number G.S.R. 82(E),\ndatedthe25thJanuary, 2018.",
+  "latest_effective_date": "2025-01-10",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2025\\04-2025-ct-eng.pdf",
+    "data\\notifications\\Central Tax (Rate)\\2025\\ctr04-2025.pdf"
+  ]
+}

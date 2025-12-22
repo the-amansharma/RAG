@@ -1,0 +1,18 @@
+{
+  "group_id": "Integrated Tax::02/2018",
+  "tax_type": "Integrated Tax",
+  "notification_no": "02/2018",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2018-09-20",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Integrated Tax\\2018\\notfctn-2-2018-igst-english.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2018-09-20 | Source: notfctn-2-2018-igst-english.pdf]\n[PAGE 1]\n[To be published in the Gazette of India, Extraordinary, Part II, Section 3, Subsection (i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nNotification No. 02/2018 – Integrated Tax\nNew Delhi, the 20th September, 2018\nG.S.R. …..(E).— In exercise of the powers conferred by the second proviso to section 20 of the\nIntegrated Goods and Services Tax Act, 2017 (13 of 2017), read with sub-section (1) of section\n52 of the Central Goods and Services Tax Act, 2017 (12 of 2017), the Central Government, on\nthe recommendations of the Council, hereby notifies that every electronic commerce operator,\nnot being an agent, shall collect an amount calculated at a rate of one per cent. of the net value of\ninter-State taxable supplies made through it by other suppliers where consideration with respect\nto such supplies is to be collected by the said operator.\n[F. No. 349/58/2017-GST(Pt.)]\n(Gunjan Kumar Verma)\nUnder Secretary to the Government of India",
+  "latest_effective_date": "2018-09-20",
+  "file_paths": [
+    "data\\notifications\\Integrated Tax\\2018\\notfctn-2-2018-igst-english.pdf"
+  ]
+}

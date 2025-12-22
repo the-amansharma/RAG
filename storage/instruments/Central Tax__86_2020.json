@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::86/2020",
+  "tax_type": "Central Tax",
+  "notification_no": "86/2020",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2020-11-10",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central tax 2020\\notfctn-86-central-tax-english-2020.pdf"
+    },
+    {
+      "document_nature": "corrigendum",
+      "issued_on": "2020-11-13",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central tax 2020\\notfctn-86-central-tax-english-2020-corr.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2020-11-10 | Source: notfctn-86-central-tax-english-2020.pdf]\n[PAGE 1]\n[To be published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section\n(i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nNotification No. 86/2020 – Central Tax\nNew Delhi, the 10th November, 2020\nG.S.R.....(E).– In exercise of the powers conferred by section 168 of the Central Goods and\nServices Tax Act, 2017 (12 of 2017), read with sub-rule (5) of rule 61 of the Central Goods\nand Services Tax Rules, 2017, the Central Government, on being satisfied that it is necessary\nin the public interest so to do, on the recommendations on the Council, hereby rescinds the\nnotification of the Government of India in the Ministry of Finance (Department of Revenue)\nNo. 76/2020-Central Tax, dated the 15th October, 2020, published in the Gazette of India,\nExtraordinary, vide number G.S.R. 636 (E), dated the 15th October, 2020, except as respects\nthings done or omitted to be done before such rescission.\n[F. No. CBEC 20/06/04/2020-GST]\n(Pramod Kumar)\nDirector, Government of India\n\n[CORRIGENDUM | Issued: 2020-11-13 | Source: notfctn-86-central-tax-english-2020-corr.pdf]\n[PAGE 1]\n[To be published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section\n(i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nCorrigendum\nNew Delhi, the 13th November, 2020\nG.S.R...(E).:- In the notification of the Government of India, in the Ministry of Finance,\nDepartment of Revenue, No. 86/2020-Central Tax, dated the 10th November, 2020, published\nin the Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R.\n702(E), dated the 10th November, 2020, :\n at page 25, in line 33, for the words “Central Government” read “Commissioner”.\n[F. No. CBEC-20/06/04/2020-GST]\n(Pramod Kumar)\nDirector, Government of India",
+  "latest_effective_date": "2020-11-13",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central tax 2020\\notfctn-86-central-tax-english-2020.pdf",
+    "data\\notifications\\Central tax\\Central tax 2020\\notfctn-86-central-tax-english-2020-corr.pdf"
+  ]
+}

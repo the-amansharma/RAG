@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::68/2020",
+  "tax_type": "Central Tax",
+  "notification_no": "68/2020",
+  "documents": [
+    {
+      "document_nature": "corrigendum",
+      "issued_on": "2020-09-22",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central tax 2020\\notfctn-68-central-tax-english-2020-corr.pdf"
+    },
+    {
+      "document_nature": "original",
+      "issued_on": null,
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central tax 2020\\notfctn-68-central-tax-english-2020.pdf"
+    }
+  ],
+  "composite_text": "[CORRIGENDUM | Issued: 2020-09-22 | Source: notfctn-68-central-tax-english-2020-corr.pdf]\n[PAGE 1]\nTo be published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section\n(i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nCorrigendum\nNew Delhi, the 22nd September, 2020\nG.S.R...(E).:- In the notification of the Government of India, in the Ministry of Finance,\nDepartment of Revenue, No. 68/2020-Central Tax, dated the 21st September, 2020, published\nin the Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i), vide number G.S.R.\n573(E), dated the 21st September, 2020, :\n at page 4, in line 30, for the figures and letter “22th ” read “ 22nd”.\n[F. No. CBEC-20/06/08/2019-GST]\n(Pramod Kumar)\nDirector, Government of India\n\n[ORIGINAL | Issued: UNKNOWN | Source: notfctn-68-central-tax-english-2020.pdf]\n[PAGE 1]\n[To be published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nNotification No. 68/2020 – Central Tax\nNew Delhi, 21st September, 2020\nG.S.R……(E):- In exercise of the powers conferred by section 128 of the Central Goods and\nServices Tax Act, 2017 (12 of 2017) (hereafter in this notification referred to as the said Act), the\nGovernment, on the recommendations of the Council, hereby waives the amount of late fee\npayable under section 47 of the said Act which is in excess of two hundred and fifty rupees, for\nthe registered persons who fail to furnish the return in FORM GSTR-10 by the due date but\nfurnishes the said return between the period from 22th day of September, 2020 to 31st day of\nDecember, 2020.”.\n[F. No. CBEC-20/06/08/2019-GST]\n(Pramod Kumar)\nDirector, Government of India",
+  "latest_effective_date": "2020-09-22",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central tax 2020\\notfctn-68-central-tax-english-2020-corr.pdf",
+    "data\\notifications\\Central tax\\Central tax 2020\\notfctn-68-central-tax-english-2020.pdf"
+  ]
+}

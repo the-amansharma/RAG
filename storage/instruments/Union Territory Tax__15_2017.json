@@ -1,0 +1,25 @@
+{
+  "group_id": "Union Territory Tax::15/2017",
+  "tax_type": "Union Territory Tax",
+  "notification_no": "15/2017",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2017-06-28",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Union Territory Tax (Rate)\\2017\\15-2017_UTGST_Rate.pdf"
+    },
+    {
+      "document_nature": "original",
+      "issued_on": "2017-06-30",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Union Territory Tax\\2017\\notfctn-15-UTGST-english.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2017-06-28 | Source: 15-2017_UTGST_Rate.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZZETE OF INDIA, EXTRAORDINARY, PART II, SECTION\n3, SUB-SECTION (i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nNotification No. 15/2017-Union Territory Tax (Rate)\nNew Delhi, the 28th June, 2017\nG.S.R......(E).- In exercise of the powers conferred by clause (xiv) of section 21 of the\nUnion Territory Goods and Services Tax, 2017 (14 of 2017), read with sub-section (3) of section\n54 of the Central Goods and Services Tax Act, 2017 (12 of 2017), the Central Government, on the\nrecommendations of the Council hereby notifies that no refund of unutilised input tax credit shall be\nallowed under clause (xiv) of section 21 of the said Union Territory Goods and Services Tax Act,\nread with sub-section (3) of section 54 of the said Central Goods and Services Tax Act, in case of\nsupply of services specified in sub-item (b) of item 5 of Schedule II of the Central Goods and\nServices Tax Act, 2017.\n2. This notification shall come into force with effect from the 1st day of July, 2017.\n[F. No.334/1/2017 -TRU]\n(Ruchi Bisht)\nUnder Secretary to the Government of India\n\n[ORIGINAL | Issued: 2017-06-30 | Source: notfctn-15-UTGST-english.pdf]\n[PAGE 1]\nTo be published in Part II, Section 3, Sub-section (i) of the Official Gazette of\nIndia, Extraordinary]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(Department of Revenue)\nNotification No. 15/2017 – Union Territory Tax\nNew Delhi, the 30th June, 2017\n9 Ashadha, Saka 1939\nG.S.R. …..(E).— In pursuance of the first proviso to rule 46 of the Union Territory\nGoods and Services Tax (Lakshadweep) Rule, 2017, the Central Government, on the\nrecommendations of Goods and Services Tax Council, hereby notifies that the\nregistered person having annual turnover as specified in column (2) of the Table below\nshall mention the digits of Harmonised System of Nomenclature Codes, as specified in\nthe corresponding entry in column (3) of the said Table, in a tax invoice issued by them\nunder the said notification:\nTable\nSerial Turnover Number of Digits of\nNumber Harmonised System of\nNomenclature Code\n(1) (2) (3)\n1. Less than one crore fifty lakhs rupees Nil\n2. More than one crore fifty lakhs rupees 2\nbut less than five Crores rupees\n3. Five Crores rupees and above 4\n2. This notification shall come into force with effect from the 1st day of July, 2017.\n[F. No. S-31011/25/2017-ST-I-DOR]\n(S.R.MEENA)\nUnder Secretary to the Government of India",
+  "latest_effective_date": "2017-06-30",
+  "file_paths": [
+    "data\\notifications\\Union Territory Tax (Rate)\\2017\\15-2017_UTGST_Rate.pdf",
+    "data\\notifications\\Union Territory Tax\\2017\\notfctn-15-UTGST-english.pdf"
+  ]
+}

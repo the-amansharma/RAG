@@ -1,0 +1,25 @@
+{
+  "group_id": "Central Tax::06/2025",
+  "tax_type": "Central Tax",
+  "notification_no": "06/2025",
+  "documents": [
+    {
+      "document_nature": "original",
+      "issued_on": "2025-01-10",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2025\\06-2025-ct-eng.pdf"
+    },
+    {
+      "document_nature": "amendment",
+      "issued_on": "2025-01-16",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central Tax (Rate)\\2025\\ctr06-2025.pdf"
+    }
+  ],
+  "composite_text": "[ORIGINAL | Issued: 2025-01-10 | Source: 06-2025-ct-eng.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-\nSECTION (i)]\nGOVERNMENT OF INDIA\nMINISTRY OF FINANCE\n(DEPARTMENT OF REVENUE)\nCENTRAL BOARD OF INDIRECT TAXES AND CUSTOMS\nNOTIFICATION\nNo. 06/2025 – CENTRAL TAX\nNew Delhi, the 10th January, 2025\nG.S.R.....(E).- In exercise of the powers conferred by first proviso to sub-section (4) of section 52 read with\nsection 168 of the Central Goods and Services Tax Act, 2017 (12 of 2017), the Commissioner, on the\nrecommendations of the Council, hereby extends the time limit for furnishing the statement, containing the details\nof outward supplies of goods or services or both, effected through an e-commerce operator, in FORM GSTR-8,\nunder sub-section (4) of section 52 of the said Act read with rule 67 of the Central Goods and Services Tax Rules,\n2017 for the month of December, 2024 till the 12th day of January, 2025.\n[F.No. CBIC-20021/2/2025-GST]\n(Raushan Kumar)\nUnder Secretary to Government of India\n\n[AMENDMENT | Issued: 2025-01-16 | Source: ctr06-2025.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II,\nSECTION 3, SUB-SECTION (i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nNotification\nNo. 06/2025- Central Tax (Rate)\nNew Delhi, the 16th January, 2025.\nG.S.R. -----(E). - In exercise of the powers conferred by sub-sections (3) and (4) of section\n9, sub-section (1) of section 11, sub-section (5) of section 15 and section 148 of the Central\nGoods and Services Tax Act, 2017 (12 of 2017), the Central Government, on being\nsatisfied that it is necessary in the public interest so to do, on the recommendations of the\nCouncil, hereby makes the following amendment further to amend the notification number\n12/2017-Central Tax (Rate), of the Government of India, in the Ministry of Finance\n(Department of Revenue), published in the Gazette of India, Extraordinary, Part II,\nSection 3, Sub-section (i), vide number G.S.R. 691(E), dated the 28th June, 2017,\nnamely:—\n(i) In the said notification, in the table, -\n(A) against serial number 25A, in column (3), for the words “transmission and\ndistribution” wherever occurring, the words “transmission or distribution” shall be\nsubstituted;\n(B) after serial number 36A and the entries relating thereto, the following serial\nnumbers and entries shall be inserted, namely: -\n(1) (2) (3) (4) (5)\n“36B Heading Services of insurance provided by the Nil Nil”\n9971 Motor Vehicle Accident Fund,\nor constituted under section 164B of the\nHeading Motor Vehicles Act, 1988 (59 of 1988),\n9991 against contributions made by insurers\nout of the premiums collected for third\nparty insurance of motor vehicles.\n(C) against serial number 69, in the entry in column (3), after item (e), the\nfollowing item shall be inserted, namely :-\n“(f) a training partner approved by the National Skill Development Corporation,”\n\n[PAGE 2]\n(ii) in paragraph 2 of the said notification,-\n(A) item (w) shall be omitted with effect from the 1st day of April, 2025;\n(B) after item (zj), the following item shall be inserted, namely: -\n“(zja) “insurer” has the same meaning as assigned to it in sub-section (9) of section\n2 of the Insurance Act, 1938 (4 of 1938).”.\n[F.No. 190354/2/2025-TO (TRU-II)]\n(Md. Adil Ashraf)\nUnder Secretary to the Government of India.\nNote:- The principal notification number 12/2017 - Central Tax (Rate) was published in\nthe Gazette of India, Extraordinary, Part II, Section 3, Sub-section (i) vide number\nG.S.R. 691 (E), dated the 28th June, 2017 and was last amended vide notification\nnumber 08/2024-Central Tax (Rate) published in the Gazette of India,\nExtraordinary, vide number G.S.R. 620(E), dated the 8th October, 2024.",
+  "latest_effective_date": "2025-01-16",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2025\\06-2025-ct-eng.pdf",
+    "data\\notifications\\Central Tax (Rate)\\2025\\ctr06-2025.pdf"
+  ]
+}

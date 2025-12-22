@@ -1,0 +1,18 @@
+{
+  "group_id": "Central Tax::02/2017",
+  "tax_type": "Central Tax",
+  "notification_no": "02/2017",
+  "documents": [
+    {
+      "document_nature": "corrigendum",
+      "issued_on": "2019-07-29",
+      "identity_source": "pdf",
+      "file_path": "data\\notifications\\Central tax\\Central Tax 2017\\Corrigendum_Notfn_02-2017.pdf"
+    }
+  ],
+  "composite_text": "[CORRIGENDUM | Issued: 2019-07-29 | Source: Corrigendum_Notfn_02-2017.pdf]\n[PAGE 1]\n[TO BE PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY,\nPART II, SECTION 3, SUB-SECTION (i)]\nGovernment of India\nMinistry of Finance\n(Department of Revenue)\nCentral Board of Indirect Taxes and Customs\nCorrigendum\nNew Delhi, the 29th July, 2019\nG.S.R. (E).: - In the notification of the Government of India, in the Ministry of\nFinance, Department of Revenue, No. 02/2017-Central Tax, dated the 19th June,\n2017, published in the Gazette of India, Extraordinary, Part II, Section 3, Sub-\nsection (i), vide number G.S.R. 609(E), dated the 19th June, 2017, in English\nversion, in page 22, in line 3, for “ the Central Board of Excise and Customs”\nread “the Government”.\n[F. No 349/52/2017-GST]\n(Ruchi Bisht)\nUnder Secretary to the Government of India",
+  "latest_effective_date": "2019-07-29",
+  "file_paths": [
+    "data\\notifications\\Central tax\\Central Tax 2017\\Corrigendum_Notfn_02-2017.pdf"
+  ]
+}
