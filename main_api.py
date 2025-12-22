@@ -11,13 +11,6 @@ load_dotenv()
 
 app = FastAPI(title="GST Legal Assistant  ")
 
-
-#model warmup
-@app.on_event("startup")
-def warmup():
-    from ingestion.embeddings import _get_model
-    _get_model()
-
 # --------------------------------------------------
 # CONFIG
 # --------------------------------------------------
