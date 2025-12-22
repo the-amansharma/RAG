@@ -7,7 +7,7 @@ from qdrant_client import QdrantClient
 from ingestion.embeddings import embed_text
 from cli import (
     load_composite_text,
-    looks_like__query,
+    # looks_like__query,
     is_ambiguous,
     MIN_SCORE,
 )
