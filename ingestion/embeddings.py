@@ -10,40 +10,29 @@ load_dotenv()
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 
-HF_TOKEN = os.getenv("HF_TOKEN")  # ✅ standard name
-
+HF_TOKEN = os.getenv("HF_TOKEN")
 if not HF_TOKEN:
     raise RuntimeError("❌ HF_TOKEN is missing from environment variables.")
 
-# ✅ Force Hugging Face Router
+# ✅ DO NOT pass base_url
 client = InferenceClient(
     model=MODEL_ID,
-    token=HF_TOKEN,
-    base_url="https://router.huggingface.co"
+    token=HF_TOKEN
 )
 
 def embed_text(text: str) -> list[float]:
-    """
-    Generate embeddings using Hugging Face Router (feature-extraction).
-    Returns a flat list[float] of length EMBEDDING_DIM.
-    """
     try:
-        response = client.feature_extraction(
-            text,
-            model=MODEL_ID
-        )
+        response = client.feature_extraction(text)
 
-        # Normalize output shape
+        # Normalize output
         if hasattr(response, "tolist"):
             vector = response.tolist()
         else:
             vector = response
 
-        # Handle [[...]] vs [...]
         if isinstance(vector, list) and vector and isinstance(vector[0], list):
             vector = vector[0]
 
-        # Hard validation (prevents Qdrant corruption)
         if len(vector) != EMBEDDING_DIM:
             raise ValueError(
                 f"Embedding dimension mismatch: expected {EMBEDDING_DIM}, got {len(vector)}"
