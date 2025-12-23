@@ -8,7 +8,7 @@ from legal_core import load_composite_text, is_ambiguous, MIN_SCORE
 
 # Load environment variables
 load_dotenv()
-
+print("HF_ENDPOINT =", os.getenv("HF_ENDPOINT"))
 app = FastAPI(title="GST Legal Assistant  ")
 
 # --------------------------------------------------
