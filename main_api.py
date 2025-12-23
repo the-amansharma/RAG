@@ -5,10 +5,20 @@ from pydantic import BaseModel
 from qdrant_client import QdrantClient
 from ingestion.embeddings import embed_text
 from legal_core import load_composite_text, is_ambiguous, MIN_SCORE
+import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+
+logger = logging.getLogger("gst-rag-api")
+
+
+# Load environment variables
 load_dotenv()
 
-app = FastAPI(title="GST Legal Assistant")
+app = FastAPI(title="GST Legal Assistant  ")
 
 # --------------------------------------------------
 # CONFIG
@@ -18,6 +28,7 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 COLLECTION_NAME = "notification_instruments_cloud"
 TOP_K = 3
 
+# Initialize Client
 client = QdrantClient(
     url=QDRANT_URL,
     api_key=QDRANT_API_KEY
@@ -43,15 +54,21 @@ def health_check():
 
 @app.post("/search", response_model=SearchResponse)
 def search_notifications(payload: SearchRequest):
+    logger.info("Embedding query is working inside seach | query=%s", payload.query)
+
     query = payload.query.strip()
     if not query:
         return SearchResponse(success=False, message="Query is empty.")
 
+    # 1. Embed Query
     try:
+        logger.info("Embedding query is working inside try | query=%s", query)
         vector = embed_text(query)
+
     except Exception as e:
         return SearchResponse(success=False, message=f"Embedding failed: {str(e)}")
 
+    # 2. Search Qdrant
     try:
         results = client.query_points(
             collection_name=COLLECTION_NAME,
@@ -62,24 +79,31 @@ def search_notifications(payload: SearchRequest):
     except Exception as e:
         return SearchResponse(success=False, message=f"Database search failed: {str(e)}")
 
+    # 3. Check Relevance
     if not results or results[0].score < MIN_SCORE:
         return SearchResponse(success=False, message="No relevant notification found.")
 
+    # 4. Process Top Result
     top_result = results[0]
     instrument = top_result.payload
+    
+    # Check ambiguity (informational)
+    is_ambiguous_result = is_ambiguous(results)
 
+    # 5. Load Content
     try:
         full_text = load_composite_text(instrument["group_id"])
-    except Exception:
+    except Exception as e:
         full_text = "Error loading text."
 
-    return SearchResponse(
-        success=True,
-        data={
-            "notification_no": instrument.get("notification_no"),
-            "tax_type": instrument.get("tax_type"),
-            "score": top_result.score,
-            "is_ambiguous": is_ambiguous(results),
-            "legal_text": full_text
-        }
-    )
+    response_data = {
+        "notification_no": instrument.get("notification_no"),
+        "tax_type": instrument.get("tax_type"),
+        "score": top_result.score,
+        "is_ambiguous": is_ambiguous_result,
+        "legal_text": full_text
+    }
+
+    return SearchResponse(success=True, data=response_data)
+
+
