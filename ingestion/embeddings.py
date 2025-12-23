@@ -1,52 +1,52 @@
 import os
-from huggingface_hub import InferenceClient
+import requests
 
 # --------------------------------------------------
 # CONFIG
 # --------------------------------------------------
-MODEL_ID = "https://router.huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
+MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 
 HF_TOKEN = os.getenv("HF_TOKEN")
-HF_ENDPOINT = os.getenv("HF_ENDPOINT")  # 👈 take from env
-
 if not HF_TOKEN:
     raise RuntimeError("HF_TOKEN is missing from environment variables.")
 
-if not HF_ENDPOINT:
-    raise RuntimeError("HF_ENDPOINT is missing from environment variables.")
+API_URL = f"https://router.huggingface.co/hf-inference/models/{MODEL_ID}"
 
-# NOTE:
-# InferenceClient treats `base_url` as the actual endpoint
-# so here we pass HF_ENDPOINT as base_url and DO NOT pass model there.
-client = InferenceClient(
-    model=MODEL_ID,
-    token=HF_TOKEN
-    
-)
+HEADERS = {
+    "Authorization": f"Bearer {HF_TOKEN}",
+    "Content-Type": "application/json",
+}
 
 def embed_text(text: str) -> list[float]:
     """
-    Generate embedding via Hugging Face Inference API.
-    Returns a flat list[float] of length EMBEDDING_DIM.
+    Generate embedding using Hugging Face Router (raw HTTP).
+    Returns a flat list[float] of length 384.
     """
-    try:
-        response = client.feature_extraction(text)
+    payload = {"inputs": text}
 
-        if hasattr(response, "tolist"):
-            vector = response.tolist()
-        else:
-            vector = response
+    response = requests.post(
+        API_URL,
+        headers=HEADERS,
+        json=payload,
+        timeout=30
+    )
+    response.raise_for_status()
 
-        if isinstance(vector, list) and vector and isinstance(vector[0], list):
-            vector = vector[0]
+    data = response.json()
 
-        if len(vector) != EMBEDDING_DIM:
-            raise ValueError(
-                f"Embedding dimension mismatch: expected {EMBEDDING_DIM}, got {len(vector)}"
-            )
+    # HF may return [[...]] or [...]
+    if isinstance(data, list) and data and isinstance(data[0], list):
+        vector = data[0]
+    else:
+        vector = data
 
-        return vector
+    if not isinstance(vector, list):
+        raise RuntimeError("Invalid embedding response format")
 
-    except Exception as e:
-        raise RuntimeError(f"Embedding failed: {e}") from e
+    if len(vector) != EMBEDDING_DIM:
+        raise RuntimeError(
+            f"Embedding dimension mismatch: expected {EMBEDDING_DIM}, got {len(vector)}"
+        )
+
+    return vector
