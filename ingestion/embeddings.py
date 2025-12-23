@@ -4,7 +4,7 @@ from huggingface_hub import InferenceClient
 # --------------------------------------------------
 # CONFIG
 # --------------------------------------------------
-MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
+MODEL_ID = "https://router.huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 
 HF_TOKEN = os.getenv("HF_TOKEN")
@@ -21,8 +21,8 @@ if not HF_ENDPOINT:
 # so here we pass HF_ENDPOINT as base_url and DO NOT pass model there.
 client = InferenceClient(
     model=MODEL_ID,
-    token=HF_TOKEN,
-    base_url=HF_ENDPOINT
+    token=HF_TOKEN
+    
 )
 
 def embed_text(text: str) -> list[float]:
