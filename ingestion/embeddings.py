@@ -1,99 +1,52 @@
 import os
-from dotenv import load_dotenv
-from fastapi import FastAPI
-from pydantic import BaseModel
-from qdrant_client import QdrantClient
-from ingestion.embeddings import embed_text
-from legal_core import load_composite_text, is_ambiguous, MIN_SCORE
-
-# Load environment variables
-load_dotenv()
-print("HF_ENDPOINT =", os.getenv("HF_ENDPOINT"))
-app = FastAPI(title="GST Legal Assistant  ")
+from huggingface_hub import InferenceClient
 
 # --------------------------------------------------
 # CONFIG
 # --------------------------------------------------
-QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-COLLECTION_NAME = "notification_instruments_cloud"
-TOP_K = 3
+MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_DIM = 384
 
-# Initialize Client
-client = QdrantClient(
-    url=QDRANT_URL,
-    api_key=QDRANT_API_KEY
+HF_TOKEN = os.getenv("HF_TOKEN")
+HF_ENDPOINT = os.getenv("HF_ENDPOINT")  # 👈 take from env
+
+if not HF_TOKEN:
+    raise RuntimeError("HF_TOKEN is missing from environment variables.")
+
+if not HF_ENDPOINT:
+    raise RuntimeError("HF_ENDPOINT is missing from environment variables.")
+
+# NOTE:
+# InferenceClient treats `base_url` as the actual endpoint
+# so here we pass HF_ENDPOINT as base_url and DO NOT pass model there.
+client = InferenceClient(
+    model=MODEL_ID,
+    token=HF_TOKEN,
+    base_url=HF_ENDPOINT
 )
 
-# --------------------------------------------------
-# MODELS
-# --------------------------------------------------
-class SearchRequest(BaseModel):
-    query: str
-
-class SearchResponse(BaseModel):
-    success: bool
-    message: str | None = None
-    data: dict | None = None
-
-# --------------------------------------------------
-# ENDPOINTS
-# --------------------------------------------------
-@app.get("/")
-def health_check():
-    return {"status": "running"}
-
-@app.post("/search", response_model=SearchResponse)
-def search_notifications(payload: SearchRequest):
-    query = payload.query.strip()
-    if not query:
-        return SearchResponse(success=False, message="Query is empty.")
-
-    # 1. Embed Query
+def embed_text(text: str) -> list[float]:
+    """
+    Generate embedding via Hugging Face Inference API.
+    Returns a flat list[float] of length EMBEDDING_DIM.
+    """
     try:
-        vector = embed_text(query)
+        response = client.feature_extraction(text)
+
+        if hasattr(response, "tolist"):
+            vector = response.tolist()
+        else:
+            vector = response
+
+        if isinstance(vector, list) and vector and isinstance(vector[0], list):
+            vector = vector[0]
+
+        if len(vector) != EMBEDDING_DIM:
+            raise ValueError(
+                f"Embedding dimension mismatch: expected {EMBEDDING_DIM}, got {len(vector)}"
+            )
+
+        return vector
+
     except Exception as e:
-        return SearchResponse(success=False, message=f"Embedding failed: {str(e)}")
-
-    # 2. Search Qdrant
-    try:
-        results = client.query_points(
-            collection_name=COLLECTION_NAME,
-            query=vector,
-            limit=TOP_K,
-            with_payload=True
-        ).points
-    except Exception as e:
-        return SearchResponse(success=False, message=f"Database search failed: {str(e)}")
-
-    # 3. Check Relevance
-    if not results or results[0].score < MIN_SCORE:
-        return SearchResponse(success=False, message="No relevant notification found.")
-
-    # 4. Process Top Result
-    top_result = results[0]
-    instrument = top_result.payload
-    
-    # Check ambiguity (informational)
-    is_ambiguous_result = is_ambiguous(results)
-
-    # 5. Load Content
-    try:
-        full_text = load_composite_text(instrument["group_id"])
-    except Exception as e:
-        full_text = "Error loading text."
-
-    response_data = {
-        "notification_no": instrument.get("notification_no"),
-        "tax_type": instrument.get("tax_type"),
-        "score": top_result.score,
-        "is_ambiguous": is_ambiguous_result,
-        "legal_text": full_text
-    }
-
-    return SearchResponse(success=True, data=response_data)
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+        raise RuntimeError(f"Embedding failed: {e}") from e
