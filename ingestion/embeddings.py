@@ -1,5 +1,11 @@
 import os
-import requests
+from huggingface_hub import InferenceClient
+from dotenv import load_dotenv
+load_dotenv()
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # --------------------------------------------------
 # CONFIG
@@ -7,46 +13,45 @@ import requests
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 
-HF_TOKEN = os.getenv("HF_TOKEN")
-if not HF_TOKEN:
-    raise RuntimeError("HF_TOKEN is missing from environment variables.")
-
-API_URL = f"https://router.huggingface.co/hf-inference/models/{MODEL_ID}"
-
-HEADERS = {
-    "Authorization": f"Bearer {HF_TOKEN}",
-    "Content-Type": "application/json",
-}
+# You must set HF_TOKEN in your .env or Vercel env vars
+# Get one here: https://huggingface.co/settings/tokens
+client = InferenceClient(token=os.environ.get("HF_TOKEN"))
 
 def embed_text(text: str) -> list[float]:
+    logging.info("Generating embedding for text of length %d", len(text))
     """
-    Generate embedding using Hugging Face Router (raw HTTP).
-    Returns a flat list[float] of length 384.
+    Generate embedding via HuggingFace Hub Client.
+    Uses 'feature_extraction' to get the raw vector.
     """
-    payload = {"inputs": text}
+    if not client.token:
+        # Graceful error to help debug deployment
+        raise ValueError("❌ HF_TOKEN is missing from environment variables.")
 
-    response = requests.post(
-        API_URL,
-        headers=HEADERS,
-        json=payload,
-        timeout=30
-    )
-    response.raise_for_status()
-
-    data = response.json()
-
-    # HF may return [[...]] or [...]
-    if isinstance(data, list) and data and isinstance(data[0], list):
-        vector = data[0]
-    else:
-        vector = data
-
-    if not isinstance(vector, list):
-        raise RuntimeError("Invalid embedding response format")
-
-    if len(vector) != EMBEDDING_DIM:
-        raise RuntimeError(
-            f"Embedding dimension mismatch: expected {EMBEDDING_DIM}, got {len(vector)}"
+    try:
+        # feature_extraction returns the raw vector (list of floats)
+        # We assume the input is a single string.
+        response = client.feature_extraction(
+            text,
+            model=MODEL_ID
         )
+        print("this is the response:", response)
+        
+        # The client might return a numpy array or list depending on version/response.
+        # We ensure it's a flat list.
+        # Response format for single string often: [0.1, 0.2, ...] or [[0.1, ...]]
+        
+        # Safe cast to list
+        if hasattr(response, "tolist"):
+             vector = response.tolist()
+        else:
+             vector = response
 
-    return vector
+        # Handle nesting if the API returns [[...]] for a single input
+        if isinstance(vector, list) and len(vector) > 0 and isinstance(vector[0], list):
+            return vector[0]
+            
+        return vector
+
+    except Exception as e:
+        print(f"⚠️ HuggingFace Client Error: {e}")
+        raise e
