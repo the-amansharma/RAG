@@ -19,17 +19,33 @@ EMBEDDING_DIM = 768
 HF_TOKEN = os.getenv("HF_TOKEN")
 _hf_client = None
 
+def _initialize_client():
+    """Initialize HuggingFace client. Called lazily to avoid import-time failures."""
+    global _hf_client
+    if _hf_client is not None:
+        return _hf_client
+    
+    try:
+        if HF_TOKEN:
+            _hf_client = InferenceClient(token=HF_TOKEN)
+            logger.info(f"✅ Using HuggingFace Hub API with token: {MODEL_ID}")
+        else:
+            _hf_client = InferenceClient()
+            logger.warning("⚠️ Using HuggingFace Hub API without token (rate limits may apply)")
+            logger.info(f"✅ Using HuggingFace Hub API: {MODEL_ID}")
+    except Exception as e:
+        logger.error(f"❌ Failed to initialize HuggingFace client: {e}")
+        _hf_client = None
+        raise RuntimeError(f"Failed to initialize HuggingFace client: {e}")
+    
+    return _hf_client
+
+# Initialize on import (don't raise if it fails - will be retried when embed_text is called)
 try:
-    if HF_TOKEN:
-        _hf_client = InferenceClient(token=HF_TOKEN)
-        logger.info(f"✅ Using HuggingFace Hub API with token: {MODEL_ID}")
-    else:
-        _hf_client = InferenceClient()
-        logger.warning("⚠️ Using HuggingFace Hub API without token (rate limits may apply)")
-        logger.info(f"✅ Using HuggingFace Hub API: {MODEL_ID}")
+    _initialize_client()
 except Exception as e:
-    logger.error(f"❌ Failed to initialize HuggingFace client: {e}")
-    raise
+    logger.warning(f"⚠️ HuggingFace client initialization deferred: {e}")
+    # Don't raise - let it fail gracefully when embed_text is called
 
 # --------------------------------------------------
 # EMBEDDING FUNCTIONS
@@ -45,6 +61,10 @@ def embed_text(text: str) -> List[float]:
     Returns:
         List of floats representing the embedding vector
     """
+    # Lazy initialization
+    if _hf_client is None:
+        _initialize_client()
+    
     if not text or not text.strip():
         logger.warning("Empty text provided for embedding")
         return [0.0] * EMBEDDING_DIM
