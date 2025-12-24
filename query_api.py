@@ -8,8 +8,7 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Query as QueryParam
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from qdrant_client import QdrantClient
 from qdrant_client.models import Filter, FieldCondition, MatchValue
@@ -26,7 +25,6 @@ from query_cli import (
     evaluate_answer_quality,
     get_surrounding_chunks,
     build_filter,
-    show_collection_stats,
     format_score,
     enhanced_search,
     embed_text
@@ -107,15 +105,6 @@ class SearchResponse(BaseModel):
     results: List[ResultWithContext]
     message: Optional[str] = None
 
-class CollectionStatsResponse(BaseModel):
-    """Collection statistics response model."""
-    success: bool
-    collection_name: str
-    total_points: int
-    vector_size: int
-    distance_metric: str
-    message: Optional[str] = None
-
 # --------------------------------------------------
 # HELPER FUNCTIONS
 # --------------------------------------------------
@@ -162,61 +151,28 @@ def get_confidence_level(score: float) -> str:
 
 @app.get("/")
 async def root():
-    """Root endpoint with API information."""
+    """Root endpoint - redirects to search info."""
     return {
-        "name": "Query CLI JSON API",
+        "name": "GST Notification Search API",
         "version": "1.0.0",
-        "description": "REST API for querying GST notifications",
-        "endpoints": {
-            "/search": "POST - Search notifications",
-            "/stats": "GET - Get collection statistics",
-            "/health": "GET - Health check"
+        "endpoint": "/search",
+        "method": "POST",
+        "payload": {
+            "query": "string (required) - Natural language query",
+            "top_k": "integer (optional, default: 5) - Number of results to return"
         }
     }
-
-@app.get("/health")
-async def health_check():
-    """Health check endpoint."""
-    try:
-        client.get_collections()
-        return {
-            "status": "healthy",
-            "qdrant_connected": True,
-            "collection": COLLECTION_NAME
-        }
-    except Exception as e:
-        logger.error(f"Health check failed: {e}")
-        return JSONResponse(
-            status_code=503,
-            content={
-                "status": "unhealthy",
-                "qdrant_connected": False,
-                "error": str(e)
-            }
-        )
-
-@app.get("/stats", response_model=CollectionStatsResponse)
-async def get_stats():
-    """Get collection statistics."""
-    try:
-        collection_info = client.get_collection(COLLECTION_NAME)
-        return CollectionStatsResponse(
-            success=True,
-            collection_name=COLLECTION_NAME,
-            total_points=collection_info.points_count,
-            vector_size=collection_info.config.params.vectors.size,
-            distance_metric=collection_info.config.params.vectors.distance
-        )
-    except Exception as e:
-        logger.error(f"Failed to get stats: {e}")
-        raise HTTPException(status_code=500, detail=f"Failed to get collection stats: {str(e)}")
 
 @app.post("/search", response_model=SearchResponse)
 async def search_notifications(request: QueryRequest):
     """
     Search notifications using natural language query.
     
-    Features:
+    Request payload:
+    - query (required): Natural language query string
+    - top_k (optional, default: 5): Number of results to return (1-50)
+    
+    Features (automatically applied):
     - Enhanced search with tax type isolation
     - Multi-query expansion
     - Hybrid search (semantic + keyword)
@@ -381,41 +337,6 @@ async def search_notifications(request: QueryRequest):
         logger.error(f"Search failed: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
 
-@app.get("/search/simple")
-async def simple_search(
-    query: str = QueryParam(..., description="Natural language query"),
-    top_k: int = QueryParam(5, ge=1, le=50),
-    min_score: float = QueryParam(0.6, ge=0.0, le=1.0)
-):
-    """
-    Simple GET endpoint for quick searches.
-    Returns basic results without context or evaluation.
-    """
-    request = QueryRequest(
-        query=query,
-        top_k=top_k,
-        min_score=min_score,
-        include_context=False,
-        show_top_n=top_k
-    )
-    
-    response = await search_notifications(request)
-    
-    # Return simplified response
-    return {
-        "query": response.query,
-        "total_results": response.total_results,
-        "results": [
-            {
-                "score": r.score,
-                "confidence": r.confidence,
-                "notification_no": r.notification_no,
-                "tax_type": r.tax_type,
-                "chunk_text": r.chunk_text[:500] + "..." if len(r.chunk_text) > 500 else r.chunk_text
-            }
-            for r in response.results
-        ]
-    }
 
 if __name__ == "__main__":
     import uvicorn
