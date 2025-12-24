@@ -65,9 +65,9 @@ try:
     logger.info("✅ Loaded query_cli module")
 except Exception as e:
     logger.error(f"❌ Failed to import from query_cli: {e}", exc_info=True)
-    # Set defaults if import fails
+    # Set defaults if import fails (match query_cli.py defaults)
     COLLECTION_NAME = "notification_chunks"
-    MIN_SCORE_THRESHOLD = 0.6
+    MIN_SCORE_THRESHOLD = 0.5  # Match query_cli.py default
     CONTEXT_CHUNKS_BEFORE = 2
     CONTEXT_CHUNKS_AFTER = 2
     SHOW_TOP_N_RESULTS = 3
@@ -231,14 +231,23 @@ async def search_notifications(request: QueryRequest):
     if not query:
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
-    # Use default values for all other parameters
-    min_score = MIN_SCORE_THRESHOLD  # Use default from config
+    # Check if query contains notification number - lower threshold for specific lookups
+    import re
+    has_notification = bool(re.search(r'(?:notification|notif|notfn|notfctn)?\s*(\d+)[/\-](\d{4})', query.lower()))
+    
+    # Use lower threshold for notification-specific queries (they should match exactly)
+    if has_notification:
+        min_score = 0.3  # Lower threshold for notification lookups
+        logger.info(f"Notification-specific query detected - using lower threshold: {min_score}")
+    else:
+        min_score = MIN_SCORE_THRESHOLD  # Use default from config
+    
     include_context = True
     context_before = CONTEXT_CHUNKS_BEFORE
     context_after = CONTEXT_CHUNKS_AFTER
     show_top_n = min(request.top_k, SHOW_TOP_N_RESULTS)  # Don't exceed top_k
     
-    logger.info(f"Search request: query='{query[:100]}...', top_k={request.top_k}, min_score={min_score}")
+    logger.info(f"Search request: query='{query[:100]}...', top_k={request.top_k}, min_score={min_score}, has_notification={has_notification}")
     
     # Check if client is initialized
     if client is None:
@@ -251,37 +260,41 @@ async def search_notifications(request: QueryRequest):
         # Use enhanced search if available
         if enhanced_search:
             try:
+                # Match query_cli.py: use top_k * 3 for all queries (query_cli doesn't differentiate)
+                # This ensures consistent behavior between CLI and API
+                search_top_k = request.top_k * 3
                 results = enhanced_search(
                     client=client,
                     collection_name=COLLECTION_NAME,
                     query=query,
-                    top_k=request.top_k * 3,  # Get more for filtering and reranking
+                    top_k=search_top_k,  # Get more for filtering and reranking (match query_cli)
                     use_hybrid=True,
                     use_multi_query=True,
                     use_reranking=True,
                     filters=qdrant_filter,
-                    min_score=0.0  # We'll filter by min_score later
+                    min_score=0.0  # We'll filter by min_score later (match query_cli)
                 )
-                logger.info(f"Enhanced search returned {len(results)} results")
+                logger.info(f"Enhanced search returned {len(results)} results (before filtering)")
             except Exception as e:
-                logger.warning(f"Enhanced search failed: {e}, falling back to basic search")
-                # Fallback to basic search
+                logger.warning(f"Enhanced search failed: {e}, falling back to basic search", exc_info=True)
+                # Fallback to basic search (match query_cli.py behavior)
                 query_vector = embed_text(query)
                 search_result = client.query_points(
                     collection_name=COLLECTION_NAME,
                     query=query_vector,
-                    limit=request.top_k,
+                    limit=request.top_k,  # Match query_cli.py basic search limit
                     query_filter=qdrant_filter,
                     with_payload=True
                 )
                 results = search_result.points
         else:
-            # Basic search fallback
+            # Basic search fallback (match query_cli.py behavior)
+            logger.warning("Enhanced search not available, using basic search")
             query_vector = embed_text(query)
             search_result = client.query_points(
                 collection_name=COLLECTION_NAME,
                 query=query_vector,
-                limit=request.top_k,
+                limit=request.top_k,  # Match query_cli.py basic search limit
                 query_filter=qdrant_filter,
                 with_payload=True
             )
@@ -289,11 +302,37 @@ async def search_notifications(request: QueryRequest):
         
         query_time = time.time() - start_time
         
+        # Log all results before filtering for debugging
+        if results:
+            top_scores = [f"{r.score:.3f}" for r in results[:5]]
+            logger.info(f"Raw results: {len(results)} results, top scores: {', '.join(top_scores)}")
+        
         # Filter by minimum score and sort by score (high to low)
         filtered_results = [r for r in results if r.score >= min_score]
         filtered_results.sort(key=lambda x: x.score, reverse=True)
         
+        logger.info(f"After filtering (min_score={min_score}): {len(filtered_results)} results")
+        
+        # If no results after filtering, try with progressively lower thresholds (like query_cli would)
+        if not filtered_results and results:
+            # Try with lower thresholds for better recall
+            for lower_threshold in [0.4, 0.3, 0.2]:
+                if min_score > lower_threshold:
+                    logger.info(f"No results with threshold {min_score}, trying with lower threshold {lower_threshold}")
+                    filtered_results = [r for r in results if r.score >= lower_threshold]
+                    filtered_results.sort(key=lambda x: x.score, reverse=True)
+                    if filtered_results:
+                        logger.info(f"Found {len(filtered_results)} results with threshold {lower_threshold}")
+                        min_score = lower_threshold  # Update for response message
+                        break
+        
         if not filtered_results:
+            # Log top results even if below threshold for debugging (match query_cli behavior)
+            if results:
+                top_scores = [f"{r.score:.3f}" for r in results[:5]]
+                highest_score = results[0].score if results else 0.0
+                logger.warning(f"No results above threshold {min_score}. Found {len(results)} results below threshold. Highest score: {highest_score:.3f}")
+            
             return SearchResponse(
                 success=False,
                 query=query,
@@ -304,7 +343,7 @@ async def search_notifications(request: QueryRequest):
                 evaluation={},
                 statistics=calculate_statistics([], query_time),
                 results=[],
-                message=f"No results found (minimum score: {min_score:.2f})"
+                message=f"No results found (minimum score: {min_score:.2f}). Found {len(results)} results below threshold. Highest score: {results[0].score:.3f if results else 0.0:.3f}"
             )
         
         # Get top N results
